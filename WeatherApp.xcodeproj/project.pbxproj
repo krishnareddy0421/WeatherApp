@@ -14,6 +14,8 @@
 		9E33EB731FD710AC00FE3DBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E33EB711FD710AC00FE3DBD /* LaunchScreen.storyboard */; };
 		9E33EB7E1FD710AC00FE3DBD /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EB7D1FD710AC00FE3DBD /* WeatherAppTests.swift */; };
 		9E33EB891FD710AC00FE3DBD /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EB881FD710AC00FE3DBD /* WeatherAppUITests.swift */; };
+		9E33EB981FD7158400FE3DBD /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EB971FD7158400FE3DBD /* UserLocation.swift */; };
+		9E33EB9C1FD718AD00FE3DBD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EB9B1FD718AD00FE3DBD /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		9E33EB841FD710AC00FE3DBD /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E33EB881FD710AC00FE3DBD /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
 		9E33EB8A1FD710AD00FE3DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E33EB971FD7158400FE3DBD /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
+		9E33EB9B1FD718AD00FE3DBD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +101,11 @@
 		9E33EB671FD710AC00FE3DBD /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				9E33EB681FD710AC00FE3DBD /* AppDelegate.swift */,
-				9E33EB6A1FD710AC00FE3DBD /* ViewController.swift */,
+				9E33EB9A1FD7185000FE3DBD /* Constants */,
+				9E33EB961FD7157900FE3DBD /* Services */,
+				9E33EB991FD715E900FE3DBD /* Controllers */,
 				9E33EB6C1FD710AC00FE3DBD /* Main.storyboard */,
+				9E33EB681FD710AC00FE3DBD /* AppDelegate.swift */,
 				9E33EB6F1FD710AC00FE3DBD /* Assets.xcassets */,
 				9E33EB711FD710AC00FE3DBD /* LaunchScreen.storyboard */,
 				9E33EB741FD710AC00FE3DBD /* Info.plist */,
@@ -123,6 +129,30 @@
 				9E33EB8A1FD710AD00FE3DBD /* Info.plist */,
 			);
 			path = WeatherAppUITests;
+			sourceTree = "<group>";
+		};
+		9E33EB961FD7157900FE3DBD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9E33EB971FD7158400FE3DBD /* UserLocation.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9E33EB991FD715E900FE3DBD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9E33EB6A1FD710AC00FE3DBD /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9E33EB9A1FD7185000FE3DBD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				9E33EB9B1FD718AD00FE3DBD /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E33EB981FD7158400FE3DBD /* UserLocation.swift in Sources */,
 				9E33EB6B1FD710AC00FE3DBD /* ViewController.swift in Sources */,
 				9E33EB691FD710AC00FE3DBD /* AppDelegate.swift in Sources */,
+				9E33EB9C1FD718AD00FE3DBD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZELVJRAH4Y;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.applicationDevelopment.WeatherApp;
@@ -441,6 +474,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZELVJRAH4Y;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.applicationDevelopment.WeatherApp;

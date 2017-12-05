@@ -12,6 +12,12 @@ import MapKit
 
 class ViewController: UIViewController, MKMapViewDelegate {
     
+    // MARK: - Outlets
+    @IBOutlet weak var localityLbl: UILabel!
+    @IBOutlet weak var summaryLbl: UILabel!
+    @IBOutlet weak var temperatureLbl: UILabel!
+    
+    
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -42,7 +48,18 @@ extension ViewController: CLLocationManagerDelegate {
                     let userLatitude = userPlace.location?.coordinate.latitude
                     let userLongitude = userPlace.location?.coordinate.longitude
                     
-                    UserLocation.instance.gotUserLocation(locality: userLocality!, latitude: userLatitude!, longitude: userLongitude!)
+                    UserLocation.instance.gotUserLocation(locality: userLocality!, latitude: userLatitude!, longitude: userLongitude!, completion: { (success) in
+                        if success {
+                            UIView.animate(withDuration: 0.4, animations: {
+                                self.localityLbl.alpha = 1
+                                self.temperatureLbl.alpha = 1
+                                self.summaryLbl.alpha = 1
+                                self.localityLbl.text = "\(userLocality!)"
+                                self.temperatureLbl.text = "\(String(describing: "\(UserLocation.instance.locationTemperature!)°"))"
+                                self.summaryLbl.text = "\(String(describing: UserLocation.instance.locationSummary!))"
+                            })
+                        }
+                    })
                 }
             })
         }

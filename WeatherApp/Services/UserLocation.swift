@@ -35,6 +35,10 @@ class UserLocation {
                 completion(false)
                 return
             }
+            guard let timeInSeconds = current["time"]?.double else {
+                completion(false)
+                return
+            }
             guard let summary = current["summary"]?.string else {
                 completion(false)
                 return
@@ -43,10 +47,43 @@ class UserLocation {
                 completion(false)
                 return
             }
+            guard let daily = json["daily"]?.dictionaryValue else {
+                completion(false)
+                return
+            }
+            guard let data = daily["data"]?.arrayValue else {
+                completion(false)
+                return
+            }
+            for day in data {
+                guard let time = day["time"].double else {
+                    completion(false)
+                    return
+                }
+                print(self.convertTimeToWeekDay(seconds: time))
+            }
+            
+            let forecast = CurrentForecast()
+            forecast.day = self.convertTimeToWeekDay(seconds: timeInSeconds)
+            forecast.currentSummary = summary
+            forecast.currentTemperature = "\(temperature)"
+            
+            try! realm.write {
+                realm.add(forecast, update: true)
+            }
+            
             self.locationSummary = summary
             self.locationTemperature = Int(temperature)
             completion(true)
         }
+    }
+    
+    func convertTimeToWeekDay(seconds: Double) -> String {
+        let dateVar = Date.init(timeIntervalSince1970: TimeInterval(seconds))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        let currentDay: String = dateFormatter.string(from: dateVar)
         
+        return currentDay
     }
 }

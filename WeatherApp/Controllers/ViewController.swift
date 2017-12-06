@@ -58,6 +58,8 @@ extension ViewController: CLLocationManagerDelegate {
                                 self.temperatureLbl.text = "\(String(describing: "\(UserLocation.instance.locationTemperature!)°"))"
                                 self.summaryLbl.text = "\(String(describing: UserLocation.instance.locationSummary!))"
                             })
+                        } else {
+                            // error handling
                         }
                     })
                 }

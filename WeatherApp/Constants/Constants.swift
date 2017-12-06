@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import RealmSwift
 
-
-let API_KEY = "203bf0976335ed98863b556ed9f61f79"
+let API_KEY = "d873c116f9ebc5b90b95f48753f688a7"
 
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
+let realm = try! Realm()

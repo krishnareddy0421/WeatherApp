@@ -18,6 +18,7 @@
 		9E33EB981FD7158400FE3DBD /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EB971FD7158400FE3DBD /* UserLocation.swift */; };
 		9E33EB9C1FD718AD00FE3DBD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EB9B1FD718AD00FE3DBD /* Constants.swift */; };
 		9E33EB9F1FD7270F00FE3DBD /* Tempertaure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EB9E1FD7270F00FE3DBD /* Tempertaure.swift */; };
+		9E33EBA11FD7488C00FE3DBD /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EBA01FD7488C00FE3DBD /* Realm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		9E33EB971FD7158400FE3DBD /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		9E33EB9B1FD718AD00FE3DBD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9E33EB9E1FD7270F00FE3DBD /* Tempertaure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tempertaure.swift; sourceTree = "<group>"; };
+		9E33EBA01FD7488C00FE3DBD /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				9E33EB9E1FD7270F00FE3DBD /* Tempertaure.swift */,
+				9E33EBA01FD7488C00FE3DBD /* Realm.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				9E33EB9F1FD7270F00FE3DBD /* Tempertaure.swift in Sources */,
 				9E33EB691FD710AC00FE3DBD /* AppDelegate.swift in Sources */,
 				9E33EB9C1FD718AD00FE3DBD /* Constants.swift in Sources */,
+				9E33EBA11FD7488C00FE3DBD /* Realm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,7 @@
 		9E33EBA11FD7488C00FE3DBD /* TodayForecastRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EBA01FD7488C00FE3DBD /* TodayForecastRealm.swift */; };
 		9E33EBA31FD77F3C00FE3DBD /* FutureForecastRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EBA21FD77F3C00FE3DBD /* FutureForecastRealm.swift */; };
 		9E33EBA61FD783A600FE3DBD /* WeekDaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EBA51FD783A600FE3DBD /* WeekDaysCell.swift */; };
+		9E91F0EC1FD7AFA10022D999 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EB971FD7158400FE3DBD /* UserLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -420,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E33EB7E1FD710AC00FE3DBD /* WeatherAppTests.swift in Sources */,
+				9E91F0EC1FD7AFA10022D999 /* UserLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,9 @@
 		9E33EB981FD7158400FE3DBD /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EB971FD7158400FE3DBD /* UserLocation.swift */; };
 		9E33EB9C1FD718AD00FE3DBD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EB9B1FD718AD00FE3DBD /* Constants.swift */; };
 		9E33EB9F1FD7270F00FE3DBD /* Tempertaure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EB9E1FD7270F00FE3DBD /* Tempertaure.swift */; };
-		9E33EBA11FD7488C00FE3DBD /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EBA01FD7488C00FE3DBD /* Realm.swift */; };
+		9E33EBA11FD7488C00FE3DBD /* TodayForecastRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EBA01FD7488C00FE3DBD /* TodayForecastRealm.swift */; };
+		9E33EBA31FD77F3C00FE3DBD /* FutureForecastRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EBA21FD77F3C00FE3DBD /* FutureForecastRealm.swift */; };
+		9E33EBA61FD783A600FE3DBD /* WeekDaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E33EBA51FD783A600FE3DBD /* WeekDaysCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +60,9 @@
 		9E33EB971FD7158400FE3DBD /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		9E33EB9B1FD718AD00FE3DBD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9E33EB9E1FD7270F00FE3DBD /* Tempertaure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tempertaure.swift; sourceTree = "<group>"; };
-		9E33EBA01FD7488C00FE3DBD /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		9E33EBA01FD7488C00FE3DBD /* TodayForecastRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayForecastRealm.swift; sourceTree = "<group>"; };
+		9E33EBA21FD77F3C00FE3DBD /* FutureForecastRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureForecastRealm.swift; sourceTree = "<group>"; };
+		9E33EBA51FD783A600FE3DBD /* WeekDaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDaysCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 		9E33EB671FD710AC00FE3DBD /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				9E33EBA41FD7838C00FE3DBD /* View */,
 				9E33EB9D1FD726F900FE3DBD /* Model */,
 				9E33EB9A1FD7185000FE3DBD /* Constants */,
 				9E33EB961FD7157900FE3DBD /* Services */,
@@ -171,9 +176,18 @@
 			isa = PBXGroup;
 			children = (
 				9E33EB9E1FD7270F00FE3DBD /* Tempertaure.swift */,
-				9E33EBA01FD7488C00FE3DBD /* Realm.swift */,
+				9E33EBA01FD7488C00FE3DBD /* TodayForecastRealm.swift */,
+				9E33EBA21FD77F3C00FE3DBD /* FutureForecastRealm.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9E33EBA41FD7838C00FE3DBD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E33EBA51FD783A600FE3DBD /* WeekDaysCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A862D7C49406D03F33B76E61 /* Pods */ = {
@@ -392,10 +406,12 @@
 			files = (
 				9E33EB981FD7158400FE3DBD /* UserLocation.swift in Sources */,
 				9E33EB6B1FD710AC00FE3DBD /* ViewController.swift in Sources */,
+				9E33EBA61FD783A600FE3DBD /* WeekDaysCell.swift in Sources */,
+				9E33EBA31FD77F3C00FE3DBD /* FutureForecastRealm.swift in Sources */,
 				9E33EB9F1FD7270F00FE3DBD /* Tempertaure.swift in Sources */,
 				9E33EB691FD710AC00FE3DBD /* AppDelegate.swift in Sources */,
 				9E33EB9C1FD718AD00FE3DBD /* Constants.swift in Sources */,
-				9E33EBA11FD7488C00FE3DBD /* Realm.swift in Sources */,
+				9E33EBA11FD7488C00FE3DBD /* TodayForecastRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,7 @@ class UserLocation {
     static let instance = UserLocation()
     var locationSummary: String?
     var locationTemperature: Int?
+    var day: String?
     
     func gotUserLocation(locality: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees, completion: @escaping CompletionHandler) {
         let urlString = "https://api.darksky.net/forecast/\(API_KEY)/\(latitude),\(longitude)"
@@ -55,12 +56,28 @@ class UserLocation {
                 completion(false)
                 return
             }
-            for day in data {
+            for day in data[1..<6] {
                 guard let time = day["time"].double else {
                     completion(false)
                     return
                 }
-                print(self.convertTimeToWeekDay(seconds: time))
+                guard let highTemp = day["temperatureHigh"].double else {
+                    completion(false)
+                    return
+                }
+                guard let lowTemp = day["temperatureLow"].double else {
+                    completion(false)
+                    return
+                }
+                
+                let nextDaysForecast = FutureForecast()
+                nextDaysForecast.highTemperature = "\(Int(highTemp))"
+                nextDaysForecast.lowTemperature = "\(Int(lowTemp))"
+                nextDaysForecast.day = self.convertTimeToWeekDay(seconds: Double(time))
+                
+                try! realm.write {
+                    realm.add(nextDaysForecast, update: true)
+                }
             }
             
             let forecast = CurrentForecast()
@@ -74,6 +91,7 @@ class UserLocation {
             
             self.locationSummary = summary
             self.locationTemperature = Int(temperature)
+            self.day = self.convertTimeToWeekDay(seconds: timeInSeconds)
             completion(true)
         }
     }

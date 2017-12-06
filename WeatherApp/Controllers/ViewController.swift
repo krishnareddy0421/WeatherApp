@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import RealmSwift
 
 class ViewController: UIViewController, MKMapViewDelegate {
     
@@ -16,12 +17,21 @@ class ViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var localityLbl: UILabel!
     @IBOutlet weak var summaryLbl: UILabel!
     @IBOutlet weak var temperatureLbl: UILabel!
-    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var todayLbl: UILabel!
+    @IBOutlet weak var todaySV: UIStackView!
     
     let locationManager = CLLocationManager()
+    var weekDays : Results<FutureForecast>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.tableView.sectionHeaderHeight = 40
+        tableView.rowHeight = (tableView.frame.height - 40) / 5
+        tableView.layer.borderWidth = 1
+        tableView.layer.borderColor = UIColor.white.cgColor
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
@@ -33,7 +43,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
             locationManager.requestLocation()
         }
     }
-    
 }
 
 extension ViewController: CLLocationManagerDelegate {
@@ -57,6 +66,12 @@ extension ViewController: CLLocationManagerDelegate {
                                 self.localityLbl.text = "\(userLocality!)"
                                 self.temperatureLbl.text = "\(String(describing: "\(UserLocation.instance.locationTemperature!)°"))"
                                 self.summaryLbl.text = "\(String(describing: UserLocation.instance.locationSummary!))"
+                                self.todaySV.alpha = 1
+                                self.todayLbl.text = "\(UserLocation.instance.day!)"
+                                
+                                self.tableView.alpha = 1
+                                self.weekDays = realm.objects(FutureForecast.self)
+                                self.tableView.reloadData()
                             })
                         } else {
                             // error handling
@@ -71,6 +86,37 @@ extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if (status == CLAuthorizationStatus.denied) {
             // error handling
+        }
+    }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Day/HighTemperature/LowTemperature"
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if weekDays != nil {
+            return weekDays.count
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "weekDayCell", for: indexPath) as? WeekDaysCell {
+         
+            cell.dayLbl.text = weekDays[indexPath.row].day
+            cell.highTempLbl.text = "\(weekDays[indexPath.row].highTemperature!)°"
+            cell.lowTempLbl.text = "\(weekDays[indexPath.row].lowTemperature!)°"
+            
+            return cell
+        } else {
+            return UITableViewCell()
         }
     }
 }
